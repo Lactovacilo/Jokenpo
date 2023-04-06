@@ -1,0 +1,35 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+#estatisticas{
+    width: 50%;
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+}
+
+body div img{
+    width: 50%;
+}
+
+
+#botoes{
+    width: 50%;
+    padding: 10px;
+    display: flex;
+}
+
+.botao,
+#estatisticas p{
+    border-style: none;
+    margin: 20px;
+    padding: 10px;
+    outline-color: black;
+    outline-width: 10px;
+    outline-style: double;
+    background-color: white;
+    border-radius: 3px;
+}

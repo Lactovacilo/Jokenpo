@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Jokenpo</title>
+</head>
+<body>
+    <div>
+        <div id="estatisticas">
+            <p>Você ganhou <span id="vitorias">0</span> vezes</p>
+            <p>Você perdeu <span id="derrotas">0</span> vezes</p>
+            <p>Empatou <span id="empates">0</span> vezes</p>
+        </div>
+        <img src="img/background.jpg" alt="">
+        <div id="botoes">
+            <button id="pedra" class="botao">Pedra</button>
+            <button id="papel" class="botao">Papel</button>
+            <button id="tesoura" class="botao">Tesoura</button>
+        </div>
+    </div>
+
+    <script>
+            var botao = document.getElementsByClassName("botao")
+
+            var vitoria = document.getElementById("vitorias");
+            var empate = document.getElementById("empates");
+            var derrota = document.getElementById("derrotas");
+
+            var ValorVitoria = vitoria.innerHTML
+            var ValorDerrota = empate.innerHTML
+            var ValorEmpate = derrota.innerHTML
+
+            for (var i = 0; i < botao.length; i++) {
+                botao[i].addEventListener("click", async function() {
+                    function getRandomInt(max) {
+                        return Math.floor(Math.random() * max);
+                    }
+
+                    var EscolhaBot = await getRandomInt(3);
+
+                    var ArrayEscolhas = ["pedra", "papel", "tesoura"]
+
+                    switch (this.id) {
+                        case "pedra":
+                            switch (ArrayEscolhas[EscolhaBot]){
+                                case "pedra":
+                                    alert("Você empatou, o BOT jogou pedra")
+
+                                    ValorEmpate = parseInt(ValorEmpate) + 1
+                                    empate.innerHTML = ValorEmpate
+                                    break;
+                                
+                                case "papel":
+                                    alert("Você perdeu, o BOT jogou papel")
+
+                                    ValorDerrota = parseInt(ValorDerrota) + 1
+                                    derrota.innerHTML = ValorDerrota
+                                    break;
+                            
+                                case "tesoura":
+                                    alert("Você ganhou, o BOT jogou tesoura")
+
+                                    ValorVitoria = parseInt(ValorVitoria) + 1
+                                    vitoria.innerHTML = ValorVitoria
+                                    break;
+                            }
+                            break;
+
+                        case "papel":
+                            switch (ArrayEscolhas[EscolhaBot]){
+                                case "pedra":
+                                    alert("Você ganhou, o BOT jogou pedra")
+
+                                    ValorVitoria = parseInt(ValorVitoria) + 1
+                                    vitoria.innerHTML = ValorVitoria
+                                    break;
+                                
+                                case "papel":
+                                    alert("Você empatou, o BOT jogou papel")
+
+                                    ValorEmpate = parseInt(ValorEmpate) + 1
+                                    empate.innerHTML = ValorEmpate
+                                    break;
+                            
+                                case "tesoura":
+                                    alert("Você perdeu, o BOT jogou tesoura")
+
+                                    ValorDerrota = parseInt(ValorDerrota) + 1
+                                    derrota.innerHTML = ValorDerrota
+                                    break;
+                            }
+                            break;
+
+                        case "tesoura":
+                            switch (ArrayEscolhas[EscolhaBot]){
+                                case "pedra":
+                                    alert("Você perdeu, o BOT jogou pedra")
+
+                                    ValorDerrota = parseInt(ValorDerrota) + 1
+                                    derrota.innerHTML = ValorDerrota
+                                    break;
+                                
+                                case "papel":
+                                    alert("Você ganhou, o BOT jogou papel")
+
+                                    ValorVitoria = parseInt(ValorVitoria) + 1
+                                    vitoria.innerHTML = ValorVitoria
+                                    break;
+                            
+                                case "tesoura":
+                                    alert("Você empatou, o BOT jogou tesoura")
+
+                                    ValorEmpate = parseInt(ValorEmpate) + 1
+                                    empate.innerHTML = ValorEmpate
+                                    break;
+                            }
+                            break;
+                    }
+                })
+            }
+    </script>
+</body>
+</html>
